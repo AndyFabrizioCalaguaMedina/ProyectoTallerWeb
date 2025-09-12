@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Hogar de Huellitas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Usar imagen png del internet para el icono de la web -->
+        <link rel="icon"
+              href="https://svgsilh.com/png-1024/306277.png" type="image/png">
+        <style>
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background: #fff8e1; /* fondo claro cálido */
+                color: #5d4037; /* marrón suave */
+            }
+
+            /* Encabezado */
+            header {
+                background: #ff9800; /* naranja vibrante */
+                padding: 20px;
+                text-align: center;
+                color: white;
+            }
+
+            header h1 {
+                margin: 0;
+                font-size: 2.5em;
+            }
+
+            header p {
+                margin: 5px 0 0;
+                font-size: 1.2em;
+            }
+
+            /* Menú de navegación */
+            nav {
+                background: #795548; /* marrón oscuro */
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+
+            nav ul {
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                margin: 0;
+                padding: 0;
+            }
+
+            nav ul li {
+                margin: 0 15px;
+            }
+
+            nav ul li a {
+                text-decoration: none;
+                color: white;
+                padding: 15px;
+                display: block;
+            }
+
+            nav ul li a:hover {
+                background: #a1887f; /* marrón claro */
+                border-radius: 5px;
+            }
+
+            /* Contenedor de tablas */
+            .tabla-container {
+                overflow-x: auto; /* para que no se rompa en pantallas pequeñas */
+                margin-top: 20px;
+            }
+
+            /* Tabla */
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                background: #fffde7; /* mismo fondo que tarjetas */
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+
+            th, td {
+                padding: 12px 15px;
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+            }
+
+            th {
+                background: #ffb300; /* amarillo fuerte */
+                color: white;
+                font-weight: bold;
+            }
+
+            tr:nth-child(even) {
+                background: #fff8e1; /* alterna colores */
+            }
+
+            tr:hover {
+                background: #ffe082; /* resalta fila al pasar mouse */
+            }
+
+            /* Sección banner */
+            
+            .hero {
+                background:
+                    url("") repeat, /* patrón no se como colocar un patron xdddd */
+                    url("https://static.vecteezy.com/system/resources/thumbnails/046/300/723/small_2x/cats-and-dog-friends-isolated-on-transparent-background-png.png") right center / contain no-repeat, /* imagen de perros y gatos */
+                    #ff9800; /* color de respaldo */
+
+                color: white;
+                text-align: center;
+                position: relative;
+                z-index: 1;
+                margin: 0;
+                padding: 100px 20px;
+                background-size: auto, 25% auto, auto; /* tamaño del patrón, tamaño de la imagen, color */
+            }
+
+
+            .hero::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+            }
+
+            .hero h2 {
+                font-size: 2.5em;
+                margin: 0;
+            }
+
+            .hero p {
+                margin-top: 10px;
+                font-size: 1.2em;
+            }
+
+            .hero a {
+                display: inline-block;
+                margin-top: 20px;
+                padding: 12px 25px;
+                background: #ffb300; /* amarillo fuerte */
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+
+            .hero a:hover {
+                background: #f57c00; /* naranja oscuro */
+            }
+
+            /* Secciones */
+            section {
+                padding: 40px 20px;
+                max-width: 1000px;
+                margin: auto;
+            }
+
+            /* pero no aplicar esto al hero */
+            .hero {
+                max-width: 100%;
+                margin: 0;
+            }
+
+            h2 {
+                text-align: center;
+                margin-bottom: 20px;
+                color: #6d4c41; /* marrón medio */
+            }
+
+            .card {
+                background: #fffde7; /* fondo amarillo claro */
+                padding: 20px;
+                margin: 10px 0;
+                border-radius: 10px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+
+            /* Galería de adopción */
+            .galeria {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 20px;
+                margin-top: 20px;
+            }
+
+            .galeria img {
+                width: 100%;
+                border-radius: 10px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            }
+
+            /* Formularios */
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            input, select, textarea {
+                padding: 8px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            button {
+                background: #ffb300; /* amarillo fuerte */
+                color: white;
+                padding: 10px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            button:hover {
+                background: #f57c00; /* naranja oscuro */
+            }
+
+            /* Ranking de Donadores */
+            .ranking {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+                margin-top: 20px;
+            }
+
+            .donador {
+                position: relative;
+                border-radius: 15px;
+                overflow: hidden;
+                color: white;
+                text-align: center;
+                padding: 20px;
+                min-height: 250px;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+                background-size: cover;
+                background-position: center;
+            }
+
+            /* Overlay oscuro para mejorar contraste */
+            .donador::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: rgba(0,0,0,0.4);
+                z-index: 0;
+            }
+
+            .donador * {
+                position: relative;
+                z-index: 1;
+            }
+
+            .donador img {
+                width: 90px;
+                height: 90px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin: 0 auto 10px;
+                border: 3px solid white;
+            }
+
+            .donador h3 {
+                margin: 5px 0;
+                color: #fffde7;
+            }
+
+            .donador p {
+                margin: 3px 0;
+            }
+
+
+            /* Pie */
+            footer {
+                background: #795548; /* marrón oscuro */
+                color: white;
+                text-align: center;
+                padding: 20px;
+                margin-top: 20px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <header>
+            <h1>Hogar de Huellitas</h1>
+            <p>Son parte de tu familia, trátalos como tales</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#adopcion">Adopción</a></li>
+                <li><a href="#donaciones">Donaciones</a></li>
+                <li><a href="#ranking">Ranking</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <!-- Banner -->
+        <section class="hero" id="inicio">
+            <h2>¡Ayúdanos a buscarles un hogar!</h2>
+            <p>Defendemos los derechos de los animales, con justicia, compasión y respeto.</p>
+            <a href="#donaciones">Haz tu donación</a>
+        </section>
+
+        <!-- Sección adopción -->
+        <section id="adopcion">
+            <h2>Adopta un Amigo</h2>
+            <div class="galeria">
+                <img src="https://img.freepik.com/psd-gratis/linda-escena-perro-marron-blanco_23-2150179279.jpg" alt="Perro en adopción">
+                <img src="https://img.freepik.com/psd-gratis/hermoso-gato-retrato-aislado_23-2150186058.jpg" alt="Gato en adopción">
+                <img src="https://i.pinimg.com/736x/29/2a/e9/292ae969e2ca614182a46d8fe634a270.jpg" alt="Conejo en adopción">
+                <img src="https://i.pinimg.com/474x/3c/ce/5f/3cce5fc74cbfc6500e34f0bbaadb45bd.jpg" alt="Perro en adopción">
+            </div>
+            <div class="card">
+                <form>
+                    <label>Nombre completo:</label>
+                    <input type="text" placeholder="Escribe tu nombre" required>
+
+                    <label>Teléfono:</label>
+                    <input type="text" placeholder="999-999-999" required>
+
+                    <label>Animal que deseas adoptar:</label>
+                    <select required>
+                        <option value="">Selecciona...</option>
+                        <option>Max (Perro)</option>
+                        <option>Luna (Gato)</option>
+                        <option>Pepe (Conejo)</option>
+                    </select>
+
+                    <label>Motivo de adopción:</label>
+                    <textarea rows="3" placeholder="Escribe tu motivo" required></textarea>
+
+                    <button type="submit">Enviar Solicitud</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Sección donaciones -->
+        <section id="donaciones">
+            <h2>Haz tu Donación</h2>
+            <div class="card">
+                <form>
+                    <label>Nombre del donador:</label>
+                    <input type="text" placeholder="Escribe tu nombre" required>
+
+                    <label>Tipo de donación:</label>
+                    <select required>
+                        <option value="">Selecciona...</option>
+                        <option>Alimento</option>
+                        <option>Medicina</option>
+                        <option>Económica</option>
+                    </select>
+
+                    <label>Cantidad / Monto:</label>
+                    <input type="text" placeholder="Ej: 20 kg o S/ 100" required>
+
+                    <button type="submit">Registrar Donación</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Sección ranking -->
+        <section id="ranking">
+            <h2>Ranking de Donadores</h2>
+            <div class="ranking">
+                <div class="donador">
+                    <img src="https://64.media.tumblr.com/00e21b1b4b20d640760183b600f60539/a53148fcab5969a0-32/s500x750/4b06f21c327de034f05764d4920e6ca921f5594f.png" alt="Donador 1">
+                    <h3>Juan Carlos Bodoque</h3>
+                    <p>Donación: Alimento</p>
+                    <p>Cantidad: 50 kg</p>
+                    <p><strong>Posición: 1</strong></p>
+                </div>
+
+                <div class="donador">
+                    <img src="<!-- AQUI IMAGEN DONADOR 2 -->" alt="Donador 2">
+                    <h3>Tilin</h3>
+                    <p>Donación: Económica</p>
+                    <p>Cantidad: S/ 300</p>
+                    <p><strong>Posición: 2</strong></p>
+                </div>
+
+                <div class="donador">
+                    <img src="<!-- AQUI IMAGEN DONADOR 3 -->" alt="Donador 3">
+                    <h3>Maria</h3>
+                    <p>Donación: Medicina</p>
+                    <p>Cantidad: 20 dosis</p>
+                    <p><strong>Posición: 3</strong></p>
+                </div>
+            </div>
+        </section>
+        
+         <section id="reportes">
+            <h2>Reportes de Donaciones</h2>
+            <div class="tabla-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Donador</th>
+                            <th>Tipo de Donación</th>
+                            <th>Cantidad</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Juan Carlos Bodoque</td>
+                            <td>Alimento</td>
+                            <td>50 kg</td>
+                            <td>12/09/2025</td>
+                        </tr>
+                        <tr>
+                            <td>María López</td>
+                            <td>Dinero</td>
+                            <td>S/. 300</td>
+                            <td>10/09/2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto">
+            <h2>Contáctanos</h2>
+            <div class="card">
+                <p>Email: contacto@hogardehuellitas.org</p>
+                <p>Teléfono: +51 999 999 999</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>© 2025 Hogar de Huellitas - Todos los derechos reservados</p>
+        </footer>
+
+    </body>
+</html>
