@@ -280,19 +280,70 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             .donador p {
                 margin: 3px 0;
             }
-
-
-            /* Pie */
-            footer {
-                background: #795548; /* marrón oscuro */
-                color: white;
-                text-align: center;
-                padding: 20px;
-                margin-top: 20px;
+            .video-outer {
+                display: flex;
+                justify-content: center;
+                margin: 40px 0;
             }
-        </style>
-    </head>
-    <body>
+
+            .video-inner {
+                position: relative;
+                width: 60%;
+                padding-bottom: 33.75%; /* mantiene proporción 16:9 */
+                height: 0;
+                overflow: hidden;
+            }
+
+            .video-inner iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: 0;
+
+                #contacto-mapa-container {
+                    display: flex;
+                    flex-wrap: nowrap; /* evita que bajen */
+                    justify-content: space-between;
+                    align-items: center;
+                    max-width: 900px; /* ancho amplio para que quepan */
+                    margin: 20px auto;
+                    background: #fffde7;
+                    padding: 20px;
+                    border-radius: 10px;
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                    color: #5d4037;
+                }
+
+                #contacto {
+                    flex: 0 0 55%; /* toma 55% del ancho */
+                    padding-right: 20px;
+                }
+
+                #mapa {
+                    flex: 0 0 40%; /* toma 40% del ancho */
+                }
+
+                #mapa iframe {
+                    width: 100%;  /* ocupa todo el ancho del contenedor mapa */
+                    height: 220px;
+                    border: none;
+                    border-radius: 15px;
+                    box-shadow: 0 2px 8px rgba(93,64,55,0.3);
+                }
+
+                /* Pie */
+                footer {
+                    background: #795548; /* marrón oscuro */
+                    color: white;
+                    text-align: center;
+                    padding: 20px;
+                    margin-top: 20px;
+                }
+            </style>
+        </head>
+        <body>
 
         <header>
             <h1>Hogar de Huellitas</h1>
@@ -473,9 +524,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </tbody>
                 </table>
             </div>
-        </section>
+         </section>
 
-        <!-- Libro de Reclamaciones -->
+         <><!-- Video de la Ong -->
+         <h2>Video de la ONG</h2>
+<div style="display: flex; justify-content: center; margin: 40px 0;">
+    <div style="position: relative; width: 60%; padding-bottom: 33.75%; height: 0; overflow: hidden;">
+        <iframe 
+            src="https://www.youtube.com/embed/ke9XQJw_csg" 
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        </iframe>
+    </div>
+</div>
+
+
+         <!-- Libro de Reclamaciones -->
         <section id="libro-reclamaciones">
             <h2>Libro de Reclamaciones</h2>
             <div class="card">
@@ -500,19 +567,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 </form>
             </div>
         </section>
-        
+
         <!-- Contacto -->
         <section id="contacto">
             <h2>Contáctanos</h2>
             <div class="card">
-                <p>Email: contacto@hogardehuellitas.org</p>
-                <p>Teléfono: +51 999 999 999</p>
+                <div>
+                    <p>Email: contacto@hogardehuellitas.org</p>
+                    <p>Teléfono: +51 999 999 999</p>
+                </div>
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3021.853916310277!2d-73.9865815845931!3d40.75797427932652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855f3d15a15%3A0x9776bc4b37919994!2s2880%20Broadway%2C%20New%20York%2C%20NY%2010019%2C%20USA!5e0!3m2!1ses!2spe!4v1600000000000!5m2!1ses!2spe" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </section>
-
         <footer>
             <p>© 2025 Hogar de Huellitas - Todos los derechos reservados</p>
         </footer>
-        
+
     </body>
 </html>
